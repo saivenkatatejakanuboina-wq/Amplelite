@@ -1,0 +1,364 @@
+<main [attr.lang]="i18n.lang()">
+  <!-- HERO -->
+  <section class="hero hero-advanced" aria-label="AmpleLite Community Edition">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-bg-mesh"></div>
+      <svg class="hero-neural" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="hero-beam" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00F2FE" stop-opacity="0" />
+            <stop offset="50%" stop-color="#4FACFE" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#7F00FF" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <g class="hero-net-lines" stroke="url(#hero-beam)" stroke-width="1" fill="none" opacity="0.4">
+          <path d="M60 140 Q280 80 520 160 T980 120 T1140 200" />
+          <path d="M40 300 Q240 260 460 320 T820 280 T1160 340" />
+          <path d="M180 440 Q400 400 620 460 T1040 420" />
+          <path d="M520 160 L620 320 L820 280" opacity="0.55" />
+          <path d="M460 320 L620 320 L980 120" opacity="0.45" />
+        </g>
+        <g class="hero-net-nodes" fill="#4FACFE">
+          <circle cx="60" cy="140" r="3" opacity="0.55" />
+          <circle cx="520" cy="160" r="4" opacity="0.85" />
+          <circle cx="980" cy="120" r="3" opacity="0.6" />
+          <circle cx="620" cy="320" r="5" opacity="0.95" />
+          <circle cx="820" cy="280" r="3" opacity="0.7" />
+          <circle cx="460" cy="320" r="3" opacity="0.6" />
+        </g>
+      </svg>
+      <span class="hero-orb hero-orb-1"></span>
+      <span class="hero-orb hero-orb-2"></span>
+      <span class="hero-orb hero-orb-3"></span>
+    </div>
+
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="hero-label hero-badge al-banner-enter" style="--enter-delay: 0ms">
+          <span class="hero-spark" aria-hidden="true"></span>
+          <span class="hero-badge-text">{{ i18n.t('home.hero.eyebrow') }}</span>
+        </p>
+        <h1 class="al-banner-enter" style="--enter-delay: 80ms">{{ i18n.t('home.hero.title') }}</h1>
+        <p class="hero-lede al-banner-enter" style="--enter-delay: 160ms">{{ i18n.t('home.hero.lede') }}</p>
+        <div class="hero-actions al-banner-enter" style="--enter-delay: 240ms">
+          <a class="btn hero-primary" routerLink="/contact">{{ i18n.t('home.hero.cta1') }}</a>
+          <a class="btn hero-secondary" routerLink="/products">{{ i18n.t('home.hero.cta2') }}</a>
+        </div>
+      </div>
+
+      <div class="hero-visual al-banner-enter" style="--enter-delay: 320ms" [attr.aria-label]="i18n.t('home.heroLabel')">
+        <div class="hero-lab-bg" aria-hidden="true">
+          <span class="hero-aura hero-aura-cyan"></span>
+          <span class="hero-aura hero-aura-azure"></span>
+          <span class="hero-aura hero-aura-violet"></span>
+        </div>
+        <div class="hero-dashboard-wrap">
+          <span class="hero-border-beam" aria-hidden="true"></span>
+          <div class="hero-dashboard" aria-hidden="true">
+            <aside class="hd-side">
+              <span class="hd-nav on"></span>
+              <span class="hd-nav"></span>
+              <span class="hd-nav"></span>
+              <span class="hd-nav"></span>
+              <span class="hd-nav"></span>
+              <span class="hd-nav"></span>
+            </aside>
+            <div class="hd-main">
+              <header class="hd-top">
+                <div>
+                  <b>{{ i18n.t('home.hero.dashboard.welcome') }}</b>
+                  <small>{{ i18n.t('home.hero.dashboard.sub') }}</small>
+                </div>
+                <div class="hd-live">
+                  <span class="hd-live-dot"></span>
+                  <span>{{ i18n.t('home.hero.dashboard.live') }}</span>
+                </div>
+              </header>
+
+              <div class="hd-hub">
+                <svg class="hd-neural" viewBox="0 0 380 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="hd-beam-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#00F2FE" stop-opacity="0.2" />
+                      <stop offset="50%" stop-color="#4FACFE" stop-opacity="0.85" />
+                      <stop offset="100%" stop-color="#7F00FF" stop-opacity="0.2" />
+                    </linearGradient>
+                  </defs>
+                  <path class="hd-beam hd-beam-dms" d="M58 28 C110 28, 150 52, 190 62" />
+                  <path class="hd-beam hd-beam-qms" d="M190 28 C190 28, 190 48, 190 62" />
+                  <path class="hd-beam hd-beam-lms" d="M322 28 C270 28, 230 52, 190 62" />
+                  <circle class="hd-particle hd-p-dms" r="2.5" cx="58" cy="28" />
+                  <circle class="hd-particle hd-p-qms" r="2.5" cx="190" cy="28" />
+                  <circle class="hd-particle hd-p-lms" r="2.5" cx="322" cy="28" />
+                </svg>
+                <div class="hd-core" aria-hidden="true">
+                  <span class="hd-core-ring"></span>
+                  <span class="hd-core-label">QMS</span>
+                </div>
+                <div class="hd-stats">
+                  <article class="hd-module hd-stat doc">
+                    <span class="hd-mod-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13H7V3z" stroke="currentColor" stroke-width="1.5"/><path d="M14 3v5h5" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </span>
+                    <span class="hd-scan" aria-hidden="true"></span>
+                    <em>DMS</em>
+                    <strong>SOP</strong>
+                    <span>{{ i18n.t('home.hero.dashboard.documentsSub') }}</span>
+                  </article>
+                  <article class="hd-module hd-stat qms">
+                    <span class="hd-mod-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </span>
+                    <span class="hd-status">
+                      <i class="hd-pulse-dot"></i> CAPA
+                    </span>
+                    <em>QMS</em>
+                    <strong>CC</strong>
+                    <span>{{ i18n.t('home.hero.dashboard.qualitySub') }}</span>
+                  </article>
+                  <article class="hd-module hd-stat lms">
+                    <span class="hd-ring-wrap" aria-hidden="true">
+                      <svg class="hd-ring" viewBox="0 0 36 36">
+                        <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3"/>
+                        <circle class="hd-ring-fill" cx="18" cy="18" r="14" fill="none" stroke="url(#hdRingGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="88" stroke-dashoffset="13"/>
+                        <defs><linearGradient id="hdRingGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F2FE"/><stop offset="100%" stop-color="#7F00FF"/></linearGradient></defs>
+                      </svg>
+                      <b>LMS</b>
+                    </span>
+                    <em>LMS</em>
+                    <strong>ILT</strong>
+                    <span>{{ i18n.t('home.hero.dashboard.trainingSub') }}</span>
+                  </article>
+                </div>
+              </div>
+
+              <div class="hd-recent">
+                <b>{{ i18n.t('home.hero.dashboard.recent') }}</b>
+                <div class="hd-feed-viewport">
+                  <ul class="hd-feed-list">
+                    <li><i class="t-doc"></i><span>{{ i18n.t('home.hero.dashboard.a1') }}<em>{{ i18n.t('home.hero.dashboard.a1t') }}</em></span></li>
+                    <li><i class="t-lms"></i><span>{{ i18n.t('home.hero.dashboard.a2') }}<em>{{ i18n.t('home.hero.dashboard.a2t') }}</em></span></li>
+                    <li><i class="t-qms"></i><span>{{ i18n.t('home.hero.dashboard.a3') }}<em>{{ i18n.t('home.hero.dashboard.a3t') }}</em></span></li>
+                    <li aria-hidden="true"><i class="t-doc"></i><span>{{ i18n.t('home.hero.dashboard.a1') }}<em>{{ i18n.t('home.hero.dashboard.a1t') }}</em></span></li>
+                    <li aria-hidden="true"><i class="t-lms"></i><span>{{ i18n.t('home.hero.dashboard.a2') }}<em>{{ i18n.t('home.hero.dashboard.a2t') }}</em></span></li>
+                    <li aria-hidden="true"><i class="t-qms"></i><span>{{ i18n.t('home.hero.dashboard.a3') }}<em>{{ i18n.t('home.hero.dashboard.a3t') }}</em></span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a class="scroll-cue" routerLink="/products">
+      <span>{{ i18n.t('home.scroll.hint') }}</span>
+      <i aria-hidden="true"></i>
+    </a>
+  </section>
+
+  <!-- 00 OPENING + BUILT-IN -->
+  <section class="story opening" id="why-it-matters" alScrollReveal>
+    <div class="wrap opening-grid">
+      <div class="opening-copy">
+        <p class="section-kicker">{{ i18n.t('home.why.strip') }}</p>
+        <h2 class="section-sub">{{ i18n.t('home.open.h2') }}</h2>
+        <p class="opening-lead">{{ i18n.t('home.open.p') }}</p>
+      </div>
+      <div class="opening-built">
+        <p class="built-label">{{ i18n.t('home.built.overline') }}</p>
+        <ul class="built-chips">
+          <li>
+            <span class="built-icon"><app-flow-icon name="audit" size="sm" /></span>
+            <span>{{ i18n.t('home.built.1') }}</span>
+          </li>
+          <li>
+            <span class="built-icon"><app-flow-icon name="clock" size="sm" /></span>
+            <span>{{ i18n.t('home.built.2') }}</span>
+          </li>
+          <li>
+            <span class="built-icon"><app-flow-icon name="report" size="sm" /></span>
+            <span>{{ i18n.t('home.built.3') }}</span>
+          </li>
+          <li>
+            <span class="built-icon"><app-flow-icon name="questions" size="sm" /></span>
+            <span>{{ i18n.t('home.built.4') }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 EXPLORE -->
+  <section class="story explore explore-dark" id="explore" alScrollReveal>
+    <div class="wrap explore-grid">
+      <div class="explore-panel">
+        <a class="explore-mod qms" routerLink="/products/quality-management">
+          <span class="explore-mod-icon"><app-flow-icon name="shield" size="sm" /></span>
+          <span class="explore-mod-text">
+            <b>{{ i18n.t('cap.qms.name') }}</b>
+            <span>{{ i18n.t('home.explore.qms') }}</span>
+            <em>{{ i18n.t('common.explore') }}</em>
+          </span>
+        </a>
+        <a class="explore-mod dms" routerLink="/products/document-management">
+          <span class="explore-mod-icon"><app-flow-icon name="doc" size="sm" /></span>
+          <span class="explore-mod-text">
+            <b>{{ i18n.t('cap.dms.name') }}</b>
+            <span>{{ i18n.t('home.explore.dms') }}</span>
+            <em>{{ i18n.t('common.explore') }}</em>
+          </span>
+        </a>
+        <a class="explore-mod lms" routerLink="/products/learning-management">
+          <span class="explore-mod-icon"><app-flow-icon name="cap" size="sm" /></span>
+          <span class="explore-mod-text">
+            <b>{{ i18n.t('cap.lms.name') }}</b>
+            <span>{{ i18n.t('home.explore.lms') }}</span>
+            <em>{{ i18n.t('common.explore') }}</em>
+          </span>
+        </a>
+      </div>
+      <div class="explore-copy">
+        <p class="sec-num">{{ i18n.t('home.sec.explore') }}</p>
+        <h2>{{ i18n.t('home.explore.h2') }}</h2>
+        <p class="intro">{{ i18n.t('home.explore.intro') }}</p>
+        <a class="explore-all-link" routerLink="/products">{{ i18n.t('common.explore') }} {{ i18n.t('nav.products') }} &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 BUILT FOR LIFE SCIENCES -->
+  <section class="story pillars" id="who" alScrollReveal>
+    <div class="wrap">
+      <p class="sec-num" alScrollReveal [delay]="60">{{ i18n.t('home.sec.life') }}</p>
+      <div class="pillars-head" alScrollReveal [delay]="120">
+        <h2>{{ i18n.t('home.who.h2') }}</h2>
+        <p>{{ i18n.t('home.who.p') }}</p>
+      </div>
+      <div class="pillar-grid al-reveal-stagger">
+        <article class="pillar-card p1" alScrollReveal>
+          <div class="pillar-head">
+            <span class="pillar-num">01</span>
+            <div class="pillar-icon"><app-flow-icon name="shield" size="sm" /></div>
+          </div>
+          <h3>{{ i18n.t('home.p1.h3') }}</h3>
+          <p>{{ i18n.t('home.p1.p') }}</p>
+        </article>
+        <article class="pillar-card p2" alScrollReveal>
+          <div class="pillar-head">
+            <span class="pillar-num">02</span>
+            <div class="pillar-icon"><app-flow-icon name="cap" size="sm" /></div>
+          </div>
+          <h3>{{ i18n.t('home.p2.h3') }}</h3>
+          <p>{{ i18n.t('home.p2.p') }}</p>
+        </article>
+        <article class="pillar-card p3" alScrollReveal>
+          <div class="pillar-head">
+            <span class="pillar-num">03</span>
+            <div class="pillar-icon"><app-flow-icon name="eye" size="sm" /></div>
+          </div>
+          <h3>{{ i18n.t('home.p3.h3') }}</h3>
+          <p>{{ i18n.t('home.p3.p') }}</p>
+        </article>
+        <article class="pillar-card p4" alScrollReveal>
+          <div class="pillar-head">
+            <span class="pillar-num">04</span>
+            <div class="pillar-icon"><app-flow-icon name="readiness" size="sm" /></div>
+          </div>
+          <h3>{{ i18n.t('home.p4.h3') }}</h3>
+          <p>{{ i18n.t('home.p4.p') }}</p>
+        </article>
+      </div>
+    </div>
+    <div class="sec-bridge" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- 05 WHY / COMPARE -->
+  <section class="story compare-wrap" id="ecosystem" alScrollReveal>
+    <div class="wrap">
+      <p class="sec-num">{{ i18n.t('home.eco.overline') }}</p>
+      <div class="section-head" alScrollReveal>
+        <h2>{{ i18n.t('home.eco.h2') }}</h2>
+        <p class="intro">{{ i18n.t('home.eco.p') }}</p>
+      </div>
+      <div class="compare-table-wrap" alScrollReveal [delay]="80">
+        <p class="compare-caption">{{ i18n.t('home.compare.h2') }}</p>
+        <p class="compare-intro">{{ i18n.t('home.compare.intro') }}</p>
+        <div class="compare-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>{{ i18n.t('home.compare.col1') }}</th>
+                <th>{{ i18n.t('home.compare.col2') }}</th>
+                <th class="is-highlight">{{ i18n.t('home.compare.col3') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{ i18n.t('home.compare.r1') }}</th>
+                <td>{{ i18n.t('home.compare.r1a') }}</td>
+                <td>{{ i18n.t('home.compare.r1b') }}</td>
+                <td class="is-highlight">{{ i18n.t('home.compare.r1c') }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ i18n.t('home.compare.r2') }}</th>
+                <td>{{ i18n.t('home.compare.r2a') }}</td>
+                <td>{{ i18n.t('home.compare.r2b') }}</td>
+                <td class="is-highlight">{{ i18n.t('home.compare.r2c') }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ i18n.t('home.compare.r3') }}</th>
+                <td>{{ i18n.t('home.compare.r3a') }}</td>
+                <td>{{ i18n.t('home.compare.r3b') }}</td>
+                <td class="is-highlight">{{ i18n.t('home.compare.r3c') }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ i18n.t('home.compare.r4') }}</th>
+                <td>{{ i18n.t('home.compare.r4a') }}</td>
+                <td>{{ i18n.t('home.compare.r4b') }}</td>
+                <td class="is-highlight">{{ i18n.t('home.compare.r4c') }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ i18n.t('home.compare.r5') }}</th>
+                <td>{{ i18n.t('home.compare.r5a') }}</td>
+                <td>{{ i18n.t('home.compare.r5b') }}</td>
+                <td class="is-highlight">{{ i18n.t('home.compare.r5c') }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 FOUNDING 100 -->
+  <section class="story founding" id="founding" alScrollReveal>
+    <div class="founding-bg" aria-hidden="true"></div>
+    <div class="wrap founding-layout">
+      <p class="sec-num light">{{ i18n.t('home.sec.founding') }}</p>
+      <div class="founding-panel" alScrollReveal [delay]="100">
+        <div class="founding-copy">
+          <p class="founding-tag">{{ i18n.t('home.founding.eyebrow') }}</p>
+          <h2>{{ i18n.t('home.founding.h2') }}</h2>
+          <p>{{ i18n.t('home.founding.p') }}</p>
+          <a class="btn founding-cta" routerLink="/contact">{{ i18n.t('home.founding.cta') }}</a>
+        </div>
+        <div class="founding-visual" aria-hidden="true">
+          <div class="founding-card">
+            <span class="fc-badge">Founding 100</span>
+            <p class="fc-lead">{{ i18n.t('home.viz.foundation') }}</p>
+            <ul class="fc-stack">
+              <li><b>QMS</b><span>{{ i18n.t('home.viz.quality') }}</span></li>
+              <li><b>DMS</b><span>{{ i18n.t('home.viz.documents') }}</span></li>
+              <li><b>LMS</b><span>{{ i18n.t('home.viz.learning') }}</span></li>
+            </ul>
+            <div class="fc-foot">AmpleLite</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-product-faq />
+</main>

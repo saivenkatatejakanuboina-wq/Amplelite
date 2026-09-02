@@ -1,0 +1,195 @@
+<section
+  class="ps-showcase"
+  [attr.data-kind]="kind()"
+  [attr.aria-label]="i18n.t('dash.seeInAction')"
+>
+  <div class="ps-head">
+    <p class="ps-overline">{{ i18n.t('dash.overline') }}</p>
+    <h2>{{ i18n.t('dash.seeInAction') }}</h2>
+    <p class="ps-intro">{{ i18n.t('dash.intro') }}</p>
+  </div>
+
+  <div class="ps-stage">
+    <button type="button" class="ps-nav prev" (click)="prev()" [attr.aria-label]="i18n.t('dash.prev')">‹</button>
+
+    <div class="ps-frame" [attr.data-slide]="index()">
+      @switch (kind()) {
+        @case ('qms') {
+          <div class="ps-qms">
+            <header class="ps-bar">
+              <b>Quality Intelligence Center</b>
+              <span class="ps-live">● Live</span>
+            </header>
+            @switch (index()) {
+              @case (0) {
+                <div class="ps-qms-metrics">
+                  <article><em>12</em><span>Open Deviations</span></article>
+                  <article><em>8</em><span>Open CAPA</span></article>
+                  <article><em>5</em><span>Change Controls</span></article>
+                  <article><em>3</em><span>Audit Findings</span></article>
+                </div>
+                <div class="ps-qms-panels">
+                  <div class="ps-panel">
+                    <h4>Quality Trend</h4>
+                    <div class="ps-chart" aria-hidden="true">
+                      <svg viewBox="0 0 200 60" preserveAspectRatio="none">
+                        <path class="ps-chart-area" d="M0 50 L30 42 L60 38 L90 28 L120 32 L150 18 L180 22 L200 12 L200 60 L0 60 Z" />
+                        <path class="ps-chart-line" d="M0 50 L30 42 L60 38 L90 28 L120 32 L150 18 L180 22 L200 12" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="ps-panel">
+                    <h4>CAPA Status</h4>
+                    <ul class="ps-bars">
+                      <li><span>Open</span><i style="--w:72%"></i></li>
+                      <li><span>In Progress</span><i style="--w:48%"></i></li>
+                      <li><span>Closed</span><i style="--w:86%"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              }
+              @case (1) {
+                <div class="ps-slide-pad">
+                  <div class="ps-cards-row">
+                    <article><b>01</b><span>CAPA Review</span></article>
+                    <article><b>02</b><span>Deviation Log</span></article>
+                    <article><b>03</b><span>Change Control</span></article>
+                  </div>
+                  <div class="ps-qms-table"><div></div><div></div><div></div><div></div></div>
+                </div>
+              }
+              @case (2) {
+                <div class="ps-slide-pad">
+                  <div class="ps-qms-grid" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                  <ul class="ps-bars wide">
+                    <li><span>Events tracked</span><i style="--w:90%"></i></li>
+                    <li><span>Records closed</span><i style="--w:65%"></i></li>
+                  </ul>
+                </div>
+              }
+              @default {
+                <ol class="ps-flow-inline">
+                  <li>{{ i18n.t('cap.qms.flow1') }}</li>
+                  <li>{{ i18n.t('cap.qms.flow2') }}</li>
+                  <li>{{ i18n.t('cap.qms.flow3') }}</li>
+                  <li>{{ i18n.t('cap.qms.flow4') }}</li>
+                  <li>{{ i18n.t('cap.qms.flow5') }}</li>
+                </ol>
+              }
+            }
+          </div>
+        }
+        @case ('dms') {
+          <div class="ps-dms">
+            <header class="ps-bar">
+              <b>Document Control Board</b>
+              <span class="ps-pill">1,284 Controlled</span>
+            </header>
+            @switch (index()) {
+              @case (0) {
+                <div class="ps-kanban">
+                  <div class="ps-col">
+                    <h4>{{ i18n.t('status.draft') }}</h4>
+                    <article class="ps-doc-card"><b>SOP-014</b><span>Cleaning Procedure</span><i class="tag draft">v2.1</i></article>
+                    <article class="ps-doc-card"><b>POL-008</b><span>Quality Policy</span><i class="tag draft">v1.0</i></article>
+                  </div>
+                  <div class="ps-col active">
+                    <h4>{{ i18n.t('status.review') }}</h4>
+                    <article class="ps-doc-card highlight"><b>SOP-001</b><span>Manufacturing Procedure</span><i class="tag review">● Reviewing</i></article>
+                  </div>
+                  <div class="ps-col">
+                    <h4>{{ i18n.t('status.approved') }}</h4>
+                    <article class="ps-doc-card"><b>SOP-002</b><span>Batch Record</span><i class="tag ok">✓ Controlled</i></article>
+                    <article class="ps-doc-card"><b>WI-045</b><span>Equipment Setup</span><i class="tag ok">✓ Approved</i></article>
+                  </div>
+                </div>
+              }
+              @case (1) {
+                <div class="ps-dms-split">
+                  <ul class="ps-tree"><li></li><li class="on"></li><li></li><li></li></ul>
+                  <div class="ps-doc-preview"><i></i><i></i><i></i><i></i></div>
+                </div>
+              }
+              @case (2) {
+                <div class="ps-review-panel">
+                  <div class="ps-doc-preview wide"><i></i><i></i><i></i></div>
+                  <aside><span></span><span></span><i class="tag review">{{ i18n.t('status.review') }}</i></aside>
+                </div>
+              }
+              @default {
+                <ol class="ps-flow-inline">
+                  <li>{{ i18n.t('cap.dms.flow1') }}</li>
+                  <li>{{ i18n.t('cap.dms.flow2') }}</li>
+                  <li>{{ i18n.t('cap.dms.flow3') }}</li>
+                  <li>{{ i18n.t('cap.dms.flow4') }}</li>
+                </ol>
+              }
+            }
+          </div>
+        }
+        @case ('lms') {
+          <div class="ps-lms">
+            <header class="ps-bar">
+              <b>Training &amp; Competency Hub</b>
+              <span class="ps-pill">85% Complete</span>
+            </header>
+            @if (index() === 0 || index() === 1) {
+              <div class="ps-lms-body">
+                <div class="ps-ring-wrap" aria-hidden="true">
+                  <svg class="ps-ring" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="42" class="ps-ring-bg" />
+                    <circle cx="50" cy="50" r="42" class="ps-ring-fill" />
+                  </svg>
+                  <b>85%</b>
+                  <small>Compliance</small>
+                </div>
+                <ul class="ps-courses">
+                  <li><div class="ps-course-head"><b>GMP Fundamentals</b><em>92%</em></div><div class="ps-prog"><i style="--w:92%"></i></div></li>
+                  <li><div class="ps-course-head"><b>Document Control</b><em>78%</em></div><div class="ps-prog"><i style="--w:78%"></i></div></li>
+                  <li><div class="ps-course-head"><b>CAPA Training</b><em>54%</em></div><div class="ps-prog"><i style="--w:54%"></i></div></li>
+                </ul>
+              </div>
+            }
+            @if (index() === 2) {
+              <div class="ps-cards-row lms-cards">
+                <article><b>01</b><span>{{ i18n.t('cap.lms.flow1') }}</span></article>
+                <article><b>02</b><span>{{ i18n.t('cap.lms.flow2') }}</span></article>
+                <article><b>03</b><span>{{ i18n.t('cap.lms.flow3') }}</span></article>
+              </div>
+            }
+            @if (index() === 3) {
+              <div class="ps-lms-steps large">
+                @for (step of [1,2,3,4,5]; track step) {
+                  <span [class.on]="step <= 4">{{ step }}</span>
+                }
+              </div>
+              <ul class="ps-bars wide pad">
+                <li><span>Completed</span><i style="--w:85%"></i></li>
+                <li><span>Scheduled</span><i style="--w:40%"></i></li>
+              </ul>
+            }
+          </div>
+        }
+      }
+    </div>
+
+    <button type="button" class="ps-nav next" (click)="next()" [attr.aria-label]="i18n.t('dash.next')">›</button>
+  </div>
+
+  <div class="ps-meta">
+    <div class="ps-dots" role="tablist">
+      @for (slide of slides(); track slide.titleKey; let i = $index) {
+        <button
+          type="button"
+          role="tab"
+          [class.on]="i === index()"
+          [attr.aria-selected]="i === index()"
+          [attr.aria-label]="i18n.t(slide.titleKey)"
+          (click)="go(i)"
+        ></button>
+      }
+    </div>
+    <h3>{{ i18n.t(current().titleKey) }}</h3>
+    <p>{{ i18n.t(current().descKey) }}</p>
+  </div>
+</section>

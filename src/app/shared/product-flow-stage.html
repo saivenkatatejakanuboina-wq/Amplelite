@@ -1,0 +1,106 @@
+<div
+  class="flow-stage"
+  [class]="'flow-stage layout-' + kind()"
+  [attr.data-flow-stage]="kind()"
+  [attr.data-active]="activeStep()"
+  [class.is-live]="stageVisible()"
+>
+
+  @if (kind() === 'qms') {
+    <div class="qms-cycle" alScrollReveal>
+      <div class="qms-orbit">
+        <svg class="qms-ring" viewBox="0 0 360 360" aria-hidden="true">
+          <circle class="qms-track" cx="180" cy="180" r="128" />
+          <circle class="qms-beam" cx="180" cy="180" r="128" />
+          <circle class="qms-runner" r="5" cx="180" cy="52" />
+        </svg>
+        <div class="qms-hub">
+          <span class="qms-hub-pulse" aria-hidden="true"></span>
+          <b>QMS</b>
+          <span>{{ steps()[activeStep()] }}</span>
+        </div>
+        @for (step of steps(); track step; let i = $index) {
+          <button
+            type="button"
+            class="qms-node"
+            [style.--i]="i"
+            [class.is-active]="activeStep() >= i"
+            [class.is-current]="activeStep() === i"
+            (click)="selectStep(i)"
+          >
+            <app-flow-icon [name]="iconAt(i)" size="sm" />
+            <em>{{ stepNum(i) }}</em>
+            <strong>{{ step }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+  }
+
+  @if (kind() === 'dms') {
+    <div class="dms-life">
+      <div class="dms-progress" aria-hidden="true">
+        <span class="dms-progress-track"></span>
+        <span class="dms-progress-fill"></span>
+        <span class="dms-token">
+          <i></i><i></i>
+        </span>
+      </div>
+      <ol class="dms-rail" alScrollReveal>
+        @for (step of steps(); track step; let i = $index) {
+          <li>
+            <button
+              type="button"
+              class="dms-stage"
+              [class.is-current]="activeStep() === i"
+              [class.is-done]="activeStep() > i"
+              (click)="selectStep(i)"
+            >
+              <span class="dms-scan" aria-hidden="true"></span>
+              <span class="dms-page" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </span>
+              <app-flow-icon [name]="iconAt(i)" size="sm" />
+              <b>{{ step }}</b>
+              <small>{{ stepNum(i) }}</small>
+            </button>
+            @if (i < steps().length - 1) {
+              <span class="dms-arrow" aria-hidden="true">
+                <span class="dms-packet"></span>
+              </span>
+            }
+          </li>
+        }
+      </ol>
+      <p class="dms-caption">{{ i18n.t('cap.dms.how.note') }}</p>
+    </div>
+  }
+
+  @if (kind() === 'lms') {
+    <div class="lms-journey" alScrollReveal>
+      <svg class="lms-track" viewBox="0 0 920 180" preserveAspectRatio="none" aria-hidden="true">
+        <path class="lms-track-line" d="M40 120 C 140 40, 240 40, 340 120 S 540 200, 640 120 S 820 40, 880 90" />
+        <path class="lms-track-beam" d="M40 120 C 140 40, 240 40, 340 120 S 540 200, 640 120 S 820 40, 880 90" />
+        <circle class="lms-runner" r="6" cx="40" cy="120" />
+      </svg>
+      <ol class="lms-stops">
+        @for (step of steps(); track step; let i = $index) {
+          <li [style.--i]="i">
+            <button
+              type="button"
+              class="lms-stop"
+              [class.is-current]="activeStep() === i"
+              [class.is-done]="activeStep() > i"
+              (click)="selectStep(i)"
+            >
+              <span class="lms-dot">{{ stepNum(i) }}</span>
+              <app-flow-icon [name]="iconAt(i)" size="sm" />
+              <b>{{ step }}</b>
+            </button>
+          </li>
+        }
+      </ol>
+    </div>
+  }
+
+</div>

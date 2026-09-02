@@ -1,0 +1,196 @@
+:host {
+  display: block;
+  color: var(--ink);
+  font-family: var(--font), Inter, Arial, sans-serif;
+  background: var(--band-ice, #E3F2FD);
+}
+* { box-sizing: border-box; }
+.wrap {
+  width: min(1160px, calc(100% - 96px));
+  max-width: 1160px;
+  margin: auto;
+}
+
+.hero {
+  padding: 36px 0 40px;
+  background:
+    radial-gradient(640px 280px at 88% 18%, rgba(255, 255, 255, .28), transparent 64%),
+    linear-gradient(160deg, #6ad8f7 0%, #3ec8f0 46%, #22a8d4 100%);
+  color: #fff;
+}
+.overline {
+  margin: 0 0 10px;
+  color: #eaf1fa;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+.dark { color: var(--teal); }
+.hero h1, h2 { line-height: 1.18; max-width: none; margin: 0; }
+.hero h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  letter-spacing: -.4px;
+  text-transform: none;
+  max-width: 14ch;
+}
+.section-head { max-width: 720px; }
+.section-head h2,
+.section h2 {
+  font-size: clamp(26px, 2.8vw, 36px);
+  letter-spacing: -.3px;
+}
+.hero p:not(.overline) {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #e6eeff;
+  max-width: 58ch;
+  margin: 16px 0 0;
+}
+.section { padding: 48px 0 56px; background: var(--band-ice, #E3F2FD); }
+.intro {
+  max-width: 68ch;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 500;
+  margin: 12px 0 0;
+}
+
+.product-roadmap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+  align-items: stretch;
+}
+.roadmap-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 22px 22px 20px;
+  background: var(--surface-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(10, 31, 61, .04);
+}
+.roadmap-node {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.roadmap-node span {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.roadmap-node b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 6px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+.roadmap-card[data-key="dms"] .roadmap-node b,
+.roadmap-card[data-key="lms"] .roadmap-node b { background: var(--teal); }
+.roadmap-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+.roadmap-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.6;
+  flex: 1;
+}
+.roadmap-card small {
+  display: block;
+  margin: 12px 0 16px;
+  color: #7b889e;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: auto;
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  background: transparent;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color .22s ease, color .22s ease;
+}
+.ghost:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+
+.growth-section { background: var(--band-ice, #E3F2FD); }
+.growth-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+  align-items: stretch;
+}
+.growth-grid article {
+  padding: 22px 22px 24px;
+  background: var(--surface-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  border-top: 3px solid var(--teal);
+}
+.growth-grid b {
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.growth-grid h3 {
+  font-size: 18px;
+  line-height: 1.3;
+  margin: 12px 0 8px;
+}
+.growth-grid p {
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hero .overline, .hero h1, .hero p:not(.overline) { opacity: 1; }
+
+@media (max-width: 900px) {
+  .product-roadmap, .growth-grid { grid-template-columns: 1fr; }
+  .hero h1 { max-width: none; }
+}
+@media (max-width: 620px) {
+  .wrap { width: min(100% - 32px, 1160px); }
+  .hero { padding: 28px 0 32px; }
+  .section { padding: 36px 0 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

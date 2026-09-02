@@ -1,0 +1,276 @@
+<section
+  class="showcase"
+  [class.compact]="compact()"
+  [class.preview]="previewOnly()"
+  [attr.data-product]="product()"
+  tabindex="0"
+  role="region"
+  [attr.aria-label]="i18n.t('dash.seeInAction')"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+>
+  @if (!compact() && !previewOnly()) {
+    <div class="head">
+      <p class="overline">{{ i18n.t('dash.overline') }}</p>
+      <h2>{{ i18n.t('dash.seeInAction') }}</h2>
+      <p class="intro">{{ i18n.t('dash.intro') }}</p>
+    </div>
+  }
+
+  <div class="stage">
+    @if (!previewOnly()) {
+      <button type="button" class="nav prev" (click)="prev()" [attr.aria-label]="i18n.t('dash.prev')">‹</button>
+    }
+
+    <div
+      class="frame"
+      [attr.data-variant]="current().variant"
+      [class.slide-next]="slideDir() === 'next'"
+      [class.slide-prev]="slideDir() === 'prev'"
+    >
+      <div class="chrome">
+        <aside class="side">
+          <div class="logo">AmpleLite</div>
+          <nav>
+            <span [class.on]="product() === 'qms'">QMS</span>
+            <span [class.on]="product() === 'dms'">DMS</span>
+            <span [class.on]="product() === 'lms'">LMS</span>
+          </nav>
+        </aside>
+        <div class="main">
+          <header class="top">
+            @if (current().variant.endsWith('-overview')) {
+              <div class="welcome">
+                <b>{{ i18n.t('home.hero.dashboard.welcome') }}</b>
+                <small>{{ i18n.t('home.hero.dashboard.sub') }}</small>
+              </div>
+            } @else {
+              <div class="search"></div>
+            }
+            <div class="user"></div>
+          </header>
+
+          @switch (current().variant) {
+            @case ('qms-overview') {
+              <div class="body">
+                <div class="kpis">
+                  <article><b>{{ i18n.t('status.open') }}</b><em></em></article>
+                  <article><b>{{ i18n.t('status.review') }}</b><em></em></article>
+                  <article><b>{{ i18n.t('status.approved') }}</b><em></em></article>
+                </div>
+                <div class="split">
+                  <div class="panel">
+                    <h4>{{ i18n.t('dash.qms.s1.title') }}</h4>
+                    <div class="bars"><i></i><i></i><i></i><i></i></div>
+                  </div>
+                  <div class="panel">
+                    <h4>{{ i18n.t('home.viz.quality') }}</h4>
+                    <ul class="rows">
+                      <li><span></span><i class="tag open">{{ i18n.t('status.open') }}</i></li>
+                      <li><span></span><i class="tag review">{{ i18n.t('status.review') }}</i></li>
+                      <li><span></span><i class="tag ok">{{ i18n.t('status.approved') }}</i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            }
+            @case ('qms-activities') {
+              <div class="body">
+                <div class="cards">
+                  <article><b>01</b><span>{{ i18n.t('home.viz.quality') }}</span><p></p></article>
+                  <article><b>02</b><span>{{ i18n.t('cap.workflow') }}</span><p></p></article>
+                  <article><b>03</b><span>{{ i18n.t('status.review') }}</span><p></p></article>
+                </div>
+                <div class="panel wide">
+                  <h4>{{ i18n.t('dash.qms.s2.title') }}</h4>
+                  <div class="table">
+                    <div></div><div></div><div></div><div></div>
+                  </div>
+                </div>
+              </div>
+            }
+            @case ('qms-visibility') {
+              <div class="body">
+                <div class="split">
+                  <div class="panel">
+                    <h4>{{ i18n.t('dash.qms.s3.title') }}</h4>
+                    <div class="status-grid">
+                      <span class="open"></span><span class="review"></span><span class="ok"></span><span></span>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <h4>{{ i18n.t('cap.overview') }}</h4>
+                    <ul class="rows dense">
+                      <li><span></span><i></i></li>
+                      <li><span></span><i></i></li>
+                      <li><span></span><i></i></li>
+                      <li><span></span><i></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            }
+            @case ('qms-workflow') {
+              <div class="body centerish">
+                <div class="flowline">
+                  <div><b>1</b><span>{{ i18n.t('cap.qms.flow1') }}</span></div>
+                  <i></i>
+                  <div><b>2</b><span>{{ i18n.t('cap.qms.flow2') }}</span></div>
+                  <i></i>
+                  <div><b>3</b><span>{{ i18n.t('cap.qms.flow3') }}</span></div>
+                  <i></i>
+                  <div><b>4</b><span>{{ i18n.t('cap.qms.flow4') }}</span></div>
+                  <i></i>
+                  <div><b>5</b><span>{{ i18n.t('cap.qms.flow5') }}</span></div>
+                </div>
+              </div>
+            }
+            @case ('dms-overview') {
+              <div class="body">
+                <div class="kpis">
+                  <article><b>{{ i18n.t('status.draft') }}</b><em></em></article>
+                  <article><b>{{ i18n.t('status.review') }}</b><em></em></article>
+                  <article><b>{{ i18n.t('status.approved') }}</b><em></em></article>
+                </div>
+                <div class="panel wide">
+                  <h4>{{ i18n.t('dash.dms.s1.title') }}</h4>
+                  <div class="docs">
+                    <article><span></span><b></b><i class="tag review">{{ i18n.t('status.review') }}</i></article>
+                    <article><span></span><b></b><i class="tag ok">{{ i18n.t('status.approved') }}</i></article>
+                    <article><span></span><b></b><i class="tag open">{{ i18n.t('status.draft') }}</i></article>
+                  </div>
+                </div>
+              </div>
+            }
+            @case ('dms-workspace') {
+              <div class="body">
+                <div class="split">
+                  <div class="panel tree">
+                    <h4>{{ i18n.t('dash.dms.s2.title') }}</h4>
+                    <ul>
+                      <li></li><li class="on"></li><li></li><li></li>
+                    </ul>
+                  </div>
+                  <div class="panel doc">
+                    <div class="doc-lines"><i></i><i></i><i></i><i></i><i></i></div>
+                  </div>
+                </div>
+              </div>
+            }
+            @case ('dms-review') {
+              <div class="body">
+                <div class="panel wide">
+                  <h4>{{ i18n.t('dash.dms.s3.title') }}</h4>
+                  <div class="review-row">
+                    <div class="doc-preview"><i></i><i></i><i></i></div>
+                    <div class="notes">
+                      <span></span><span></span><span></span>
+                      <i class="tag review">{{ i18n.t('status.review') }}</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+            @case ('dms-control') {
+              <div class="body centerish">
+                <div class="flowline">
+                  <div><b>1</b><span>{{ i18n.t('cap.dms.flow1') }}</span></div>
+                  <i></i>
+                  <div><b>2</b><span>{{ i18n.t('cap.dms.flow2') }}</span></div>
+                  <i></i>
+                  <div><b>3</b><span>{{ i18n.t('cap.dms.flow3') }}</span></div>
+                  <i></i>
+                  <div><b>4</b><span>{{ i18n.t('cap.dms.flow4') }}</span></div>
+                </div>
+              </div>
+            }
+            @case ('lms-overview') {
+              <div class="body">
+                <div class="kpis">
+                  <article><b>{{ i18n.t('home.h3.kpi1') }}</b><em></em></article>
+                  <article><b>{{ i18n.t('home.h3.kpi2') }}</b><em></em></article>
+                  <article><b>{{ i18n.t('home.h3.kpi3') }}</b><em></em></article>
+                </div>
+                <div class="panel wide">
+                  <h4>{{ i18n.t('dash.lms.s1.title') }}</h4>
+                  <div class="progress-list">
+                    <div><span></span><i style="--w:78%"></i></div>
+                    <div><span></span><i style="--w:54%"></i></div>
+                    <div><span></span><i style="--w:32%"></i></div>
+                  </div>
+                </div>
+              </div>
+            }
+            @case ('lms-workspace') {
+              <div class="body">
+                <div class="split">
+                  <div class="panel">
+                    <h4>{{ i18n.t('dash.lms.s2.title') }}</h4>
+                    <ul class="rows">
+                      <li><span></span></li>
+                      <li><span></span></li>
+                      <li><span></span></li>
+                    </ul>
+                  </div>
+                  <div class="panel learn">
+                    <div class="learn-block"></div>
+                    <em></em><em></em>
+                  </div>
+                </div>
+              </div>
+            }
+            @case ('lms-activities') {
+              <div class="body">
+                <div class="cards">
+                  <article><b>01</b><span>{{ i18n.t('cap.lms.flow1') }}</span><p></p></article>
+                  <article><b>02</b><span>{{ i18n.t('cap.lms.flow2') }}</span><p></p></article>
+                  <article><b>03</b><span>{{ i18n.t('cap.lms.flow3') }}</span><p></p></article>
+                </div>
+              </div>
+            }
+            @case ('lms-progress') {
+              <div class="body">
+                <div class="split">
+                  <div class="panel">
+                    <h4>{{ i18n.t('dash.lms.s4.title') }}</h4>
+                    <div class="ring" aria-hidden="true"></div>
+                  </div>
+                  <div class="panel">
+                    <ul class="rows dense">
+                      <li><span></span><i class="tag ok">{{ i18n.t('home.h3.kpi1') }}</i></li>
+                      <li><span></span><i class="tag review">{{ i18n.t('status.scheduled') }}</i></li>
+                      <li><span></span><i class="tag open">{{ i18n.t('home.h3.kpi3') }}</i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+
+    @if (!previewOnly()) {
+      <button type="button" class="nav next" (click)="next()" [attr.aria-label]="i18n.t('dash.next')">›</button>
+    }
+  </div>
+
+  @if (!previewOnly()) {
+    <div class="meta" [attr.data-slide]="index()">
+      <div class="dots" role="tablist">
+        @for (slide of slides(); track slide.variant; let i = $index) {
+          <button
+            type="button"
+            role="tab"
+            [class.on]="i === index()"
+            [attr.aria-selected]="i === index()"
+            [attr.aria-label]="i18n.t(slide.titleKey)"
+            (click)="go(i)"
+          ></button>
+        }
+      </div>
+      <h3>{{ i18n.t(current().titleKey) }}</h3>
+      <p>{{ i18n.t(current().descKey) }}</p>
+    </div>
+  }
+</section>

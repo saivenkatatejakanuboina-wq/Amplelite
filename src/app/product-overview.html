@@ -1,0 +1,48 @@
+<main [attr.lang]="i18n.lang()">
+  <section class="hero">
+    <div class="wrap">
+      <p class="overline">{{ i18n.t('po.overline') }}</p>
+      <h1>{{ i18n.t('po.h1') }}</h1>
+      <p>{{ i18n.t('po.lede') }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="overline dark">{{ i18n.t('po.included') }}</p>
+        <h2>{{ i18n.t('po.h2') }}</h2>
+      </div>
+      <app-platform-capabilities [showHead]="false" />
+    </div>
+  </section>
+
+  <section class="section growth-section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="overline dark">{{ i18n.t('po.grow.overline') }}</p>
+        <h2>{{ i18n.t('po.grow.h2') }}</h2>
+        <p class="intro">{{ i18n.t('po.grow.p') }}</p>
+      </div>
+      <div class="growth-grid">
+        <article>
+          <b>{{ i18n.t('po.lab.b') }}</b>
+          <h3>{{ i18n.t('po.lab.h3') }}</h3>
+          <p>{{ i18n.t('po.lab.p') }}</p>
+        </article>
+        <article>
+          <b>{{ i18n.t('po.mfg.b') }}</b>
+          <h3>{{ i18n.t('po.mfg.h3') }}</h3>
+          <p>{{ i18n.t('po.mfg.p') }}</p>
+        </article>
+        <article>
+          <b>{{ i18n.t('po.reg.b') }}</b>
+          <h3>{{ i18n.t('po.reg.h3') }}</h3>
+          <p>{{ i18n.t('po.reg.p') }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <app-product-faq />
+</main>

@@ -1,0 +1,61 @@
+<section class="cap-matrix" aria-label="Platform capabilities">
+  @if (showHead()) {
+    <div class="matrix-head" [class.center]="compact()">
+      <p class="overline">{{ i18n.t('cap.capabilities') }}</p>
+      <h2>{{ i18n.t('platform.capabilities.h2') }}</h2>
+      @if (!compact()) {
+        <p class="intro">{{ i18n.t('platform.capabilities.intro') }}</p>
+      }
+    </div>
+  }
+
+  <div class="matrix-board" [class.matrix-flow]="infographic()">
+    @if (infographic()) {
+      <div class="flow-spine" aria-hidden="true">
+        <span class="flow-spine-track"></span>
+        <span class="flow-spine-beam"></span>
+      </div>
+    }
+    @for (row of rows; track row.id; let i = $index) {
+      <article
+        class="matrix-row"
+        [class.is-highlight]="highlight() === row.id"
+        [class.flow-row]="infographic()"
+        [attr.data-row]="row.id"
+        [style.--d]="(i * 70 + 60) + 'ms'"
+        [style.--step]="i + 1"
+      >
+        @if (infographic()) {
+          <span class="flow-node" aria-hidden="true"><i></i></span>
+        }
+        <div class="row-brand">
+          <div class="module-icon">
+            <app-flow-icon [name]="row.icon" />
+          </div>
+          @if (row.path) {
+            <a class="row-title" [routerLink]="row.path">{{ i18n.t(row.titleKey) }}</a>
+          } @else {
+            <h3 class="row-title">{{ i18n.t(row.titleKey) }}</h3>
+          }
+        </div>
+
+        <div class="row-body">
+          <p class="row-desc">{{ i18n.t(row.descKey) }}</p>
+          <ul class="row-features">
+            @for (feature of row.features; track feature.labelKey) {
+              <li>
+                <app-flow-icon [name]="feature.icon" size="sm" />
+                <span class="feature-label">
+                  {{ i18n.t(feature.labelKey) }}
+                  @if (feature.noteKey) {
+                    <small>{{ i18n.t(feature.noteKey) }}</small>
+                  }
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+      </article>
+    }
+  </div>
+</section>

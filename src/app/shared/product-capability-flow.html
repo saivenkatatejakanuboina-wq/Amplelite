@@ -1,0 +1,90 @@
+<div
+  [class]="'cap-cover kind-' + kind()"
+  [attr.data-active]="activeIndex()"
+  [class.is-live]="chartVisible()"
+>
+
+  @if (kind() === 'qms') {
+    <div class="qms-board">
+      <div class="qms-primary">
+        @for (feature of features().slice(0, 3); track feature.title; let i = $index) {
+          <article
+            class="qms-mod"
+            [class.is-current]="activeIndex() === i"
+            (mouseenter)="selectIndex(i)"
+            alScrollReveal
+            [delay]="i * 80"
+          >
+            <header>
+              <span class="qms-idx">{{ stepNum(i) }}</span>
+              <app-flow-icon [name]="iconAt(i)" size="sm" />
+            </header>
+            <h3>{{ feature.title }}</h3>
+            @if (feature.body) {
+              <p>{{ feature.body }}</p>
+            }
+          </article>
+        }
+      </div>
+      <ul class="qms-support">
+        @for (feature of features().slice(3); track feature.title; let i = $index) {
+          <li alScrollReveal [delay]="240 + i * 70">
+            <app-flow-icon [name]="iconAt(i + 3)" size="sm" />
+            <div>
+              <b>{{ feature.title }}</b>
+              @if (feature.body) {
+                <span>{{ feature.body }}</span>
+              }
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+
+  @if (kind() === 'dms') {
+    <div class="dms-shelf">
+      @for (feature of features(); track feature.title; let i = $index) {
+        <article
+          class="dms-folder"
+          [class.is-current]="activeIndex() === i"
+          (mouseenter)="selectIndex(i)"
+          alScrollReveal
+          [delay]="i * 70"
+        >
+          <span class="dms-tab">{{ stepNum(i) }}</span>
+          <app-flow-icon [name]="iconAt(i)" size="sm" />
+          <h3>{{ feature.title }}</h3>
+          @if (feature.body) {
+            <p>{{ feature.body }}</p>
+          }
+        </article>
+      }
+    </div>
+  }
+
+  @if (kind() === 'lms') {
+    <div class="lms-curriculum">
+      <ol class="lms-list">
+        @for (feature of features(); track feature.title; let i = $index) {
+          <li
+            [class.is-current]="activeIndex() === i"
+            (mouseenter)="selectIndex(i)"
+            alScrollReveal
+            [delay]="i * 60"
+          >
+            <span class="lms-mark">{{ stepNum(i) }}</span>
+            <app-flow-icon [name]="iconAt(i)" size="sm" />
+            <div>
+              <h3>{{ feature.title }}</h3>
+              @if (feature.body) {
+                <p>{{ feature.body }}</p>
+              }
+            </div>
+          </li>
+        }
+      </ol>
+    </div>
+  }
+
+</div>

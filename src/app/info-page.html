@@ -1,0 +1,60 @@
+<main [attr.lang]="i18n.lang()">
+  <section class="hero compact">
+    <div class="wrap">
+      <p class="overline">{{ i18n.t('contact.overline') }}</p>
+      <div class="hero-lead">
+        <h1>{{ i18n.t('contact.demo.h1') }}</h1>
+        <p>{{ i18n.t('contact.demo.lede') }}</p>
+      </div>
+      <ul class="demo-points">
+        <li>{{ i18n.t('contact.demo.b1') }}</li>
+        <li>{{ i18n.t('contact.demo.b2') }}</li>
+        <li>{{ i18n.t('contact.demo.b3') }}</li>
+      </ul>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap narrow">
+      <h2 class="form-heading">{{ i18n.t('contact.h1') }}</h2>
+      <p>{{ i18n.t('contact.lede') }}</p>
+      <form>
+        <div>
+          <label>{{ i18n.t('form.name') }}<input type="text" name="name" required></label>
+          <label>{{ i18n.t('form.email') }}<input type="email" name="email" required></label>
+        </div>
+        <div>
+          <label>{{ i18n.t('form.org') }}<input type="text" name="company" required></label>
+          <label>{{ i18n.t('form.country') }}<input type="text" name="country"></label>
+        </div>
+        <div>
+          <label>{{ i18n.t('form.phone') }}<input type="tel" name="phone"></label>
+          <label>{{ i18n.t('form.teamSize') }}<input type="text" name="teamSize"></label>
+        </div>
+        <div>
+          <label>{{ i18n.t('form.job') }}<input type="text" name="job"></label>
+          <label>{{ i18n.t('form.interest') }}
+            <select name="interest">
+              <option>{{ i18n.t('form.opt.qms') }}</option>
+              <option>{{ i18n.t('form.opt.dms') }}</option>
+              <option>{{ i18n.t('form.opt.lms') }}</option>
+              <option>{{ i18n.t('form.opt.founding') }}</option>
+            </select>
+          </label>
+        </div>
+        <label>{{ i18n.t('form.enquiry') }}
+          <select name="enquiry">
+            <option>{{ i18n.t('form.opt.products') }}</option>
+            <option>{{ i18n.t('form.opt.demo') }}</option>
+            <option>{{ i18n.t('form.opt.founding') }}</option>
+          </select>
+        </label>
+        <label>{{ i18n.t('form.message') }}<textarea rows="5"></textarea></label>
+        <button class="button" type="submit">{{ i18n.t('form.submit') }}</button>
+      </form>
+      <p class="follow">{{ i18n.t('form.follow') }}</p>
+      <p class="follow">{{ i18n.t('contact.existing') }}</p>
+    </div>
+  </section>
+
+  <app-product-faq />
+</main>

@@ -1,0 +1,162 @@
+<section class="tech-flow cap-tech-flow" [class.visible]="visible()" [attr.data-product]="product()" aria-label="Technical flow">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="overline">{{ i18n.t('cap.techFlow.overline') }}</p>
+      <h2>{{ i18n.t('cap.techFlow.h2') }}</h2>
+      <p class="intro">{{ i18n.t('cap.techFlow.intro') }}</p>
+    </div>
+
+    <div class="flow-board">
+      @switch (product()) {
+        @case ('qms') {
+          <div class="flow-stack qms">
+            <div class="node root" style="--d: 0ms">
+              <app-flow-icon name="medal" />
+              <b>{{ i18n.t('flow.qms.root') }}</b>
+            </div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="node" style="--d: 80ms">
+              <app-flow-icon name="activity" />
+              <b>{{ i18n.t('flow.qms.activities') }}</b>
+            </div>
+            <div class="connector branch-top" aria-hidden="true"></div>
+            <div class="branch-row">
+              <div class="node module" style="--d: 160ms">
+                <app-flow-icon name="sliders" size="sm" />
+                <b>{{ i18n.t('flow.qms.change') }}</b>
+              </div>
+              <div class="node module" style="--d: 200ms">
+                <app-flow-icon name="warn" size="sm" />
+                <b>{{ i18n.t('flow.qms.deviation') }}</b>
+              </div>
+              <div class="node module" style="--d: 240ms">
+                <app-flow-icon name="check" size="sm" />
+                <b>{{ i18n.t('flow.qms.capa') }}</b>
+              </div>
+            </div>
+            <div class="connector merge" aria-hidden="true"></div>
+            <div class="node" style="--d: 320ms">
+              <app-flow-icon name="review" />
+              <b>{{ i18n.t('flow.qms.review') }}</b>
+            </div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="node" style="--d: 400ms">
+              <app-flow-icon name="eye" />
+              <b>{{ i18n.t('flow.qms.visibility') }}</b>
+            </div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="node end" style="--d: 480ms">
+              <app-flow-icon name="record" [light]="true" />
+              <b>{{ i18n.t('flow.qms.record') }}</b>
+            </div>
+          </div>
+        }
+        @case ('dms') {
+          <div class="flow-stack dms">
+            <div class="node root" style="--d: 0ms">
+              <app-flow-icon name="doc" />
+              <b>{{ i18n.t('flow.dms.root') }}</b>
+            </div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="node" style="--d: 80ms">
+              <app-flow-icon name="folder" />
+              <b>{{ i18n.t('flow.dms.workspace') }}</b>
+            </div>
+            <div class="connector branch-top" aria-hidden="true"></div>
+            <div class="branch-row four">
+              <div class="node module" style="--d: 160ms">
+                <app-flow-icon name="template" size="sm" />
+                <b>{{ i18n.t('flow.dms.templates') }}</b>
+              </div>
+              <div class="node module" style="--d: 200ms">
+                <app-flow-icon name="upload" size="sm" />
+                <b>{{ i18n.t('flow.dms.upload') }}</b>
+              </div>
+              <div class="node module" style="--d: 240ms">
+                <app-flow-icon name="revision" size="sm" />
+                <b>{{ i18n.t('flow.dms.revision') }}</b>
+              </div>
+              <div class="node module" style="--d: 280ms">
+                <app-flow-icon name="print" size="sm" />
+                <b>{{ i18n.t('flow.dms.print') }}</b>
+              </div>
+            </div>
+            <div class="connector merge" aria-hidden="true"></div>
+            <div class="node" style="--d: 360ms">
+              <app-flow-icon name="review" />
+              <b>{{ i18n.t('flow.dms.review') }}</b>
+            </div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="node" style="--d: 440ms">
+              <app-flow-icon name="control" />
+              <b>{{ i18n.t('flow.dms.control') }}</b>
+            </div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="node end" style="--d: 520ms">
+              <app-flow-icon name="record" [light]="true" />
+              <b>{{ i18n.t('flow.dms.record') }}</b>
+            </div>
+          </div>
+        }
+        @case ('lms') {
+          <div class="flow-stack lms">
+            <div class="node root" style="--d: 0ms">
+              <app-flow-icon name="cap" />
+              <b>{{ i18n.t('flow.lms.root') }}</b>
+            </div>
+            <div class="connector" aria-hidden="true"></div>
+            <div class="node" style="--d: 80ms">
+              <app-flow-icon name="program" />
+              <b>{{ i18n.t('flow.lms.program') }}</b>
+            </div>
+            <div class="connector branch-top" aria-hidden="true"></div>
+            <div class="branch-row">
+              <div class="node module" style="--d: 160ms">
+                <app-flow-icon name="book" size="sm" />
+                <b>{{ i18n.t('flow.lms.docBased') }}</b>
+              </div>
+              <div class="node module" style="--d: 200ms">
+                <app-flow-icon name="ilt" size="sm" />
+                <b>{{ i18n.t('flow.lms.ilt') }}</b>
+              </div>
+              <div class="node module" style="--d: 240ms">
+                <app-flow-icon name="video" size="sm" />
+                <b>{{ i18n.t('flow.lms.video') }}</b>
+              </div>
+            </div>
+            <div class="connector merge" aria-hidden="true"></div>
+            <div class="node" style="--d: 320ms">
+              <app-flow-icon name="assign" />
+              <b>{{ i18n.t('flow.lms.assign') }}</b>
+            </div>
+            <div class="connector branch-top" aria-hidden="true"></div>
+            <div class="branch-row pair">
+              <div class="node module" style="--d: 400ms">
+                <app-flow-icon name="report" size="sm" />
+                <b>{{ i18n.t('flow.lms.report') }}</b>
+              </div>
+              <div class="node module" style="--d: 440ms">
+                <app-flow-icon name="questions" size="sm" />
+                <b>{{ i18n.t('flow.lms.questions') }}</b>
+              </div>
+            </div>
+            <div class="connector merge" aria-hidden="true"></div>
+            <div class="node end" style="--d: 520ms">
+              <app-flow-icon name="readiness" [light]="true" />
+              <b>{{ i18n.t('flow.lms.readiness') }}</b>
+            </div>
+          </div>
+        }
+      }
+
+      <div class="shared-strip" style="--d: 600ms">
+        <p>{{ i18n.t('cap.techFlow.shared') }}</p>
+        <ul>
+          <li><app-flow-icon name="shield" size="sm" />{{ i18n.t('flow.shared.auth') }}</li>
+          <li><app-flow-icon name="audit" size="sm" />{{ i18n.t('flow.shared.audit') }}</li>
+          <li><app-flow-icon name="roles" size="sm" />{{ i18n.t('flow.shared.roles') }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

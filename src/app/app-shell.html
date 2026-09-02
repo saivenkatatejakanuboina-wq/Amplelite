@@ -1,0 +1,101 @@
+<div class="site-chrome">
+<div class="topbar" (mouseenter)="closeProducts()">
+  <div class="wrap topbar-content">
+    <span>AmpleLITE &mdash; a focused quality foundation for life sciences teams.</span>
+    <a routerLink="/contact">Talk to our team <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</div>
+<header class="site-header" (mouseleave)="closeProducts()">
+  <div class="wrap nav site-nav">
+    <a class="brand-lockup" routerLink="/" aria-label="AmpleLITE home" (click)="closeMenu()" (mouseenter)="closeProducts()">
+      <img class="brand-mark" src="/amplelite-assets/amplelite-logo.png" alt="AmpleLite">
+      <span class="brand-edition">Community Edition</span>
+    </a>
+    <div class="nav-end">
+    <nav aria-label="Main navigation" [class.is-open]="menuOpen">
+      <a routerLink="/" (click)="closeMenu()" (mouseenter)="closeProducts()">Home</a>
+      <div class="dropdown">
+        <button
+          class="drop-toggle"
+          type="button"
+          (mouseenter)="openProducts()"
+          (click)="productsOpen = !productsOpen"
+          [class.active]="productsOpen"
+          aria-haspopup="true"
+          [attr.aria-expanded]="productsOpen"
+        >
+          Products <span class="caret" aria-hidden="true"></span>
+        </button>
+      </div>
+      <a class="header-cta mobile-cta" routerLink="/contact" (click)="closeMenu()" (mouseenter)="closeProducts()">Get started</a>
+    </nav>
+    <a class="header-cta desktop-cta" routerLink="/contact" (mouseenter)="closeProducts()">Get started</a>
+    <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'">
+      <span [class.on]="menuOpen"></span>
+    </button>
+    </div>
+  </div>
+  @if (productsOpen) {
+    <div class="drop-menu" role="menu" (mouseenter)="openProducts()">
+      <div class="drop-inner">
+        <div class="menu-column">
+          <p>Quality</p>
+          <a routerLink="/products/quality-management" (click)="closeMenu()"><b>Quality Management</b><span>Structure and visibility for quality</span></a>
+        </div>
+        <div class="menu-column">
+          <p>Documents</p>
+          <a routerLink="/products/document-management" (click)="closeMenu()"><b>Document Management</b><span>Controlled quality documents</span></a>
+        </div>
+        <div class="menu-column">
+          <p>Learning</p>
+          <a routerLink="/products/learning-management" (click)="closeMenu()"><b>Learning Management</b><span>Training in the quality environment</span></a>
+        </div>
+      </div>
+    </div>
+  }
+</header>
+</div>
+<router-outlet />
+<footer class="site-footer">
+  <div class="wrap footer">
+    <div class="footer-brand">
+      <a class="footer-logo" routerLink="/" aria-label="AmpleLITE home">
+        <img src="/amplelite-assets/amplelite-logo-white.png" alt="AmpleLite">
+      </a>
+      <p class="footer-address">Building a Stronger Quality Foundation for Life Sciences.<br>AmpleLite Community Edition | Powered by AmpleLogic</p>
+      <a class="footer-phone" routerLink="/contact">Talk to our team</a>
+      <p class="footer-follow">Follow us</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/amplelogic/" target="_blank" rel="noopener noreferrer" aria-label="AmpleLogic on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.09h4.52V24H.24zM8.23 8.09h4.33v2.17h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.93V24h-4.52v-7.54c0-1.8-.03-4.11-2.5-4.11-2.5 0-2.89 1.95-2.89 3.98V24H8.23z"/></svg>
+        </a>
+        <a href="https://www.amplelogic.com/" target="_blank" rel="noopener noreferrer" aria-label="AmpleLogic website">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.4 9h-3.18a15.4 15.4 0 0 0-1.1-5.2A8.03 8.03 0 0 1 19.4 11zM12 4c.9 0 2.2 1.9 2.7 5H9.3C9.8 5.9 11.1 4 12 4zM4.6 13h3.18c.16 1.9.6 3.7 1.1 5.2A8.03 8.03 0 0 1 4.6 13zm3.18-2H4.6A8.03 8.03 0 0 1 8.88 5.8 15.4 15.4 0 0 0 7.78 11zM12 20c-.9 0-2.2-1.9-2.7-5h5.4c-.5 3.1-1.8 5-2.7 5zm2.12-2.8A15.4 15.4 0 0 0 15.22 13h3.18a8.03 8.03 0 0 1-4.28 4.2zM15.22 11a15.4 15.4 0 0 0-1.1-5.2A8.03 8.03 0 0 1 18.4 11h-3.18zM8.88 18.2A15.4 15.4 0 0 0 9.98 13H6.8a8.03 8.03 0 0 0 2.08 5.2z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a routerLink="/" fragment="platform">Platform</a>
+      <a routerLink="/" fragment="who">About AmpleLITE</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a routerLink="/products/quality-management">Quality Management</a>
+      <a routerLink="/products/document-management">Document Management</a>
+      <a routerLink="/products/learning-management">Learning Management</a>
+      <a routerLink="/products">All products</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get started</h4>
+      <a routerLink="/contact">Founding 100</a>
+      <a routerLink="/contact">Contact us</a>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="wrap copyright-row">
+      <span>Copyright &copy; 2026 AmpleLogic. AmpleLite Community Edition.</span>
+      <a href="https://www.amplelogic.com/" target="_blank" rel="noopener noreferrer">AmpleLogic</a>
+    </div>
+  </div>
+</footer>

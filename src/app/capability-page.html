@@ -1,0 +1,203 @@
+@if (key(); as productKey) {
+<main [attr.lang]="i18n.lang()" class="cap-page page-enter layout-{{ productKey }}" [attr.data-key]="productKey">
+  <app-product-banner [kind]="productKey" />
+
+  <!-- ── OVERVIEW (QMS + DMS) ── -->
+  @if (productKey !== 'lms') {
+    <section class="cap-section sec-overview" [class.overview-split]="productKey === 'qms' || productKey === 'dms'" alScrollReveal>
+      <div class="wrap" [class.overview-split-grid]="productKey === 'qms' || productKey === 'dms'">
+        <div [class.overview-panel]="productKey === 'dms'" [class.overview-copy]="productKey === 'qms'">
+          <p class="overline">{{ i18n.t('cap.overview') }}</p>
+          <h2>{{ name() }}</h2>
+          <p class="body">{{ overview() }}</p>
+        </div>
+        @if (productKey === 'qms') {
+          <ul class="qms-stat-pills" alScrollReveal [delay]="120">
+            @for (step of flow(); track step; let i = $index) {
+              @if (i < 3) {
+                <li>
+                  <span class="pill-num">{{ '0' + (i + 1) }}</span>
+                  <p>{{ step }}</p>
+                </li>
+              }
+            }
+          </ul>
+        }
+        @if (productKey === 'dms') {
+          <ol class="dms-flow-rail al-reveal-stagger" alScrollReveal [delay]="120">
+            @for (step of flow(); track step; let i = $index; let last = $last) {
+              <li alScrollReveal [delay]="i * 70">
+                <span class="rail-marker">{{ '0' + (i + 1) }}</span>
+                <div class="rail-copy">
+                  <b>{{ step }}</b>
+                  @if (!last) { <span class="rail-line" aria-hidden="true"></span> }
+                </div>
+              </li>
+            }
+          </ol>
+        }
+      </div>
+    </section>
+  }
+
+  <!-- ── LMS intro: overview + benefits combined ── -->
+  @if (productKey === 'lms') {
+    <section class="cap-section sec-intro lms-intro" alScrollReveal>
+      <div class="wrap lms-intro-grid">
+        <div class="lms-intro-copy">
+          <p class="overline">{{ i18n.t('cap.overview') }}</p>
+          <h2>{{ name() }}</h2>
+          <p class="body">{{ overview() }}</p>
+        </div>
+        <ul class="lms-benefit-stack">
+          @for (item of benefits(); track item; let i = $index) {
+            <li alScrollReveal [delay]="i * 80">
+              <span class="stack-step">{{ i + 1 }}</span>
+              <p>{{ item }}</p>
+            </li>
+          }
+        </ul>
+      </div>
+    </section>
+  }
+
+  <!-- ── FEATURES ── -->
+  <section class="cap-section sec-features" [class.cap-dark]="productKey === 'qms'" [class.features-zigzag]="productKey === 'dms'" [class.features-compact]="productKey === 'lms'">
+    <div class="sec-features-bg" aria-hidden="true">
+      <span class="sfb-orb sfb-orb-1"></span>
+      <span class="sfb-orb sfb-orb-2"></span>
+      <span class="sfb-orb sfb-orb-3"></span>
+      <span class="sfb-mesh"></span>
+      <span class="sfb-sweep"></span>
+    </div>
+    <div class="wrap">
+      <div class="section-head" alScrollReveal>
+        <p class="overline">{{ i18n.t('cap.capabilities') }}</p>
+        <h2>{{ capTitle() }}</h2>
+      </div>
+
+      <app-product-capability-flow [kind]="productKey" [features]="features()" />
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS (layout varies) ── -->
+  <section class="cap-section sec-flow flow-section-navy">
+    <div class="sec-flow-bg" aria-hidden="true">
+      <span class="sfl-orb sfl-orb-1"></span>
+      <span class="sfl-orb sfl-orb-2"></span>
+      <span class="sfl-orb sfl-orb-3"></span>
+      <span class="sfl-mesh"></span>
+    </div>
+    <div class="wrap">
+      <div class="section-head" alScrollReveal>
+        <p class="overline">{{ i18n.t('cap.howItWorks') }}</p>
+        <h2>{{ howTitle() }}</h2>
+      </div>
+
+      <app-product-flow-stage [kind]="productKey" [steps]="flow()" />
+    </div>
+  </section>
+
+  <div class="cap-closing">
+  <!-- ── BENEFITS (QMS + DMS only — LMS uses intro stack) ── -->
+  @if (productKey !== 'lms') {
+    <section class="cap-section sec-benefits">
+      <div class="wrap">
+        <div class="section-head" alScrollReveal>
+          <p class="overline">{{ i18n.t('cap.value') }}</p>
+          <h2>{{ i18n.t('cap.value.h2') }}</h2>
+        </div>
+        <div class="benefit-row al-reveal-stagger">
+          @for (item of benefits(); track item; let i = $index) {
+            <article alScrollReveal [delay]="i * 90">
+              <span>{{ '0' + (i + 1) }}</span>
+              <p>{{ item }}</p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- ── PLATFORM CONNECT ── -->
+  <section class="cap-section sec-connect">
+    <div class="wrap">
+      <div class="section-head" alScrollReveal>
+        <p class="overline">{{ i18n.t('cap.fit') }}</p>
+        <h2>{{ i18n.t('cap.connect.h2') }}</h2>
+      </div>
+      <app-platform-connect [kind]="productKey" />
+    </div>
+  </section>
+
+  <!-- ── EXPLORE MORE ── -->
+  <section class="cap-section sec-explore" [attr.data-explore]="productKey">
+    <div class="wrap">
+      <p class="overline" alScrollReveal>{{ i18n.t('cap.exploreMore') }}</p>
+      <h2 alScrollReveal [delay]="60">{{ exploreTitle() }}</h2>
+
+      @if (productKey === 'qms') {
+        <div class="explore-spotlight al-reveal-stagger">
+          @for (item of others(); track item.path; let i = $index) {
+            <a class="spot-card" [class.spot-wide]="i === 0" [routerLink]="item.path" alScrollReveal [delay]="i * 80">
+              <span class="spot-mark">{{ item.mark }}</span>
+              <h3>{{ item.name }}</h3>
+              <p>{{ item.blurb }}</p>
+              <span class="spot-cta">{{ i18n.t('common.explore') }} <em aria-hidden="true">&rarr;</em></span>
+            </a>
+          }
+        </div>
+      }
+
+      @if (productKey === 'dms') {
+        <div class="explore-bridge" alScrollReveal>
+          @for (item of others(); track item.path; let i = $index) {
+            <a class="bridge-card" [routerLink]="item.path">
+              <b>{{ item.mark }}</b>
+              <h3>{{ item.name }}</h3>
+              <p>{{ item.blurb }}</p>
+              <span>{{ i18n.t('common.explore') }} <em aria-hidden="true">&rarr;</em></span>
+            </a>
+            @if (i === 0) {
+              <span class="bridge-link" aria-hidden="true">AmpleLite</span>
+            }
+          }
+        </div>
+      }
+
+      @if (productKey === 'lms') {
+        <ol class="explore-path al-reveal-stagger">
+          @for (item of others(); track item.path; let i = $index) {
+            <li alScrollReveal [delay]="i * 90">
+              <span class="path-num">{{ '0' + (i + 1) }}</span>
+              <a [routerLink]="item.path">
+                <b>{{ item.mark }}</b>
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.blurb }}</p>
+                <span>{{ i18n.t('common.explore') }} <em aria-hidden="true">&rarr;</em></span>
+              </a>
+            </li>
+          }
+        </ol>
+      }
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <div class="sec-faq">
+    <app-product-faq [kind]="productKey" />
+  </div>
+  </div>
+
+  <!-- ── CTA ── -->
+  <section class="cap-cta sec-cta" alScrollReveal>
+    <div class="wrap cap-cta-row">
+      <div>
+        <h2>{{ i18n.t('cap.cta.h2') }}</h2>
+        <p>{{ i18n.t('cap.cta.p') }}</p>
+      </div>
+      <a class="btn solid light" routerLink="/contact">{{ i18n.t('cap.cta.register') }}</a>
+    </div>
+  </section>
+</main>
+}

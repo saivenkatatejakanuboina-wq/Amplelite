@@ -1,0 +1,73 @@
+<main class="platform-page" [attr.lang]="i18n.lang()">
+  <!-- Hero -->
+  <section class="platform-hero" aria-labelledby="platform-title">
+    <div class="platform-hero-bg" aria-hidden="true">
+      <div class="platform-mesh"></div>
+      <svg class="platform-neural" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g stroke="url(#plat-beam)" stroke-width="1" fill="none" opacity="0.35">
+          <path d="M40 120 Q280 60 520 140 T980 100" />
+          <path d="M80 260 Q320 220 560 280 T1100 240" />
+        </g>
+        <defs>
+          <linearGradient id="plat-beam" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00F2FE" stop-opacity="0" />
+            <stop offset="50%" stop-color="#4FACFE" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#7F00FF" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="platform-orb platform-orb-1"></span>
+      <span class="platform-orb platform-orb-2"></span>
+      <span class="platform-orb platform-orb-3"></span>
+      <span class="platform-scan"></span>
+    </div>
+    <div class="wrap platform-hero-grid">
+      <div class="platform-hero-copy">
+        <p class="platform-overline al-banner-enter" style="--enter-delay: 0ms">
+          <span class="platform-spark" aria-hidden="true"></span>
+          {{ i18n.t('home.platform.overline') }}
+        </p>
+        <h1 id="platform-title" class="platform-display al-banner-enter" style="--enter-delay: 80ms">
+          {{ i18n.t('platform.capabilities.h2') }}
+        </h1>
+        <p class="platform-lede al-banner-enter" style="--enter-delay: 160ms">{{ i18n.t('platform.capabilities.intro') }}</p>
+        <div class="platform-hero-metrics al-banner-enter" style="--enter-delay: 240ms">
+          <span><strong>3</strong>{{ i18n.t('platform.metric.modules') }}</span>
+          <span><strong>&lt;2 weeks</strong>{{ i18n.t('platform.metric.golive') }}</span>
+          <span><strong>21 CFR Part 11</strong>{{ i18n.t('platform.metric.part11') }}</span>
+        </div>
+      </div>
+      <div class="platform-hero-viz al-banner-enter" style="--enter-delay: 200ms">
+        <svg class="viz-links" viewBox="0 0 360 360">
+          <line class="viz-line" x1="180" y1="180" x2="180" y2="52" />
+          <line class="viz-line viz-d2" x1="180" y1="180" x2="64" y2="278" />
+          <line class="viz-line viz-d3" x1="180" y1="180" x2="296" y2="278" />
+        </svg>
+        <div class="viz-core">
+          <b>AmpleLite</b>
+          <span>QMS · DMS · LMS</span>
+        </div>
+        <a class="viz-sat viz-qms" routerLink="/products/quality-management">QMS</a>
+        <a class="viz-sat viz-dms" routerLink="/products/document-management">DMS</a>
+        <a class="viz-sat viz-lms" routerLink="/products/learning-management">LMS</a>
+        <span class="viz-ring"></span>
+      </div>
+    </div>
+    <div class="hero-wave" aria-hidden="true"></div>
+  </section>
+
+  <!-- Connected ecosystem -->
+  <section class="platform-journey" aria-label="Digital quality journey">
+    <app-product-roadmap />
+  </section>
+
+  <!-- Capability matrix -->
+  <section class="platform-cap-section" aria-label="Capability details">
+    <div class="platform-cap-bg" aria-hidden="true">
+      <span class="pcb-sweep"></span>
+    </div>
+    <div class="wrap">
+      <app-platform-capabilities [showHead]="true" [dark]="false" [infographic]="true" />
+    </div>
+  </section>
+</main>

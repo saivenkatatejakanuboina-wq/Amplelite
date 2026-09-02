@@ -1,0 +1,5 @@
+{
+  "siteUrl": "https://yourdomain.com",
+  "baseHref": "/",
+  "notes": "Deploy to domain root: keep baseHref as /. For a subfolder (e.g. yourdomain.com/amplelite/) set baseHref to /amplelite/"
+}
