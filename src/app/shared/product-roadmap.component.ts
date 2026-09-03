@@ -25,7 +25,6 @@ import { I18nService } from '../i18n.service';
       <div class="wrap">
         <p class="sec-num">{{ i18n.t('home.sec.journey') }}</p>
         <div class="section-head">
-          <p class="overline">{{ i18n.t('home.journey.overline') }}</p>
           <h2>{{ i18n.t('home.journey.h2') }}</h2>
           <p class="intro">{{ i18n.t('home.journey.intro') }}</p>
         </div>

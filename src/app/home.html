@@ -270,64 +270,59 @@
         </article>
       </div>
     </div>
-    <div class="sec-bridge" aria-hidden="true"><span></span></div>
   </section>
 
   <!-- 05 WHY / COMPARE -->
   <section class="story compare-wrap" id="ecosystem" alScrollReveal>
     <div class="wrap">
-      <p class="sec-num">{{ i18n.t('home.eco.overline') }}</p>
-      <div class="section-head" alScrollReveal>
+      <header class="compare-head">
+        <p class="sec-num">{{ i18n.t('home.eco.overline') }}</p>
         <h2>{{ i18n.t('home.eco.h2') }}</h2>
-        <p class="intro">{{ i18n.t('home.eco.p') }}</p>
-      </div>
-      <div class="compare-table-wrap" alScrollReveal [delay]="80">
-        <p class="compare-caption">{{ i18n.t('home.compare.h2') }}</p>
-        <p class="compare-intro">{{ i18n.t('home.compare.intro') }}</p>
-        <div class="compare-scroll">
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>{{ i18n.t('home.compare.col1') }}</th>
-                <th>{{ i18n.t('home.compare.col2') }}</th>
-                <th class="is-highlight">{{ i18n.t('home.compare.col3') }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">{{ i18n.t('home.compare.r1') }}</th>
-                <td>{{ i18n.t('home.compare.r1a') }}</td>
-                <td>{{ i18n.t('home.compare.r1b') }}</td>
-                <td class="is-highlight">{{ i18n.t('home.compare.r1c') }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ i18n.t('home.compare.r2') }}</th>
-                <td>{{ i18n.t('home.compare.r2a') }}</td>
-                <td>{{ i18n.t('home.compare.r2b') }}</td>
-                <td class="is-highlight">{{ i18n.t('home.compare.r2c') }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ i18n.t('home.compare.r3') }}</th>
-                <td>{{ i18n.t('home.compare.r3a') }}</td>
-                <td>{{ i18n.t('home.compare.r3b') }}</td>
-                <td class="is-highlight">{{ i18n.t('home.compare.r3c') }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ i18n.t('home.compare.r4') }}</th>
-                <td>{{ i18n.t('home.compare.r4a') }}</td>
-                <td>{{ i18n.t('home.compare.r4b') }}</td>
-                <td class="is-highlight">{{ i18n.t('home.compare.r4c') }}</td>
-              </tr>
-              <tr>
-                <th scope="row">{{ i18n.t('home.compare.r5') }}</th>
-                <td>{{ i18n.t('home.compare.r5a') }}</td>
-                <td>{{ i18n.t('home.compare.r5b') }}</td>
-                <td class="is-highlight">{{ i18n.t('home.compare.r5c') }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <p class="intro">{{ i18n.t('home.compare.intro') }}</p>
+      </header>
+      <div class="compare-board" alScrollReveal [delay]="80">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th scope="col" class="compare-feature-col"><span class="visually-hidden">{{ i18n.t('home.compare.h2') }}</span></th>
+              <th scope="col">{{ i18n.t('home.compare.col1') }}</th>
+              <th scope="col">{{ i18n.t('home.compare.col2') }}</th>
+              <th scope="col" class="is-highlight">{{ i18n.t('home.compare.col3') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{ i18n.t('home.compare.r1') }}</th>
+              <td>{{ i18n.t('home.compare.r1a') }}</td>
+              <td>{{ i18n.t('home.compare.r1b') }}</td>
+              <td class="is-highlight">{{ i18n.t('home.compare.r1c') }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ i18n.t('home.compare.r2') }}</th>
+              <td>{{ i18n.t('home.compare.r2a') }}</td>
+              <td>{{ i18n.t('home.compare.r2b') }}</td>
+              <td class="is-highlight">{{ i18n.t('home.compare.r2c') }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ i18n.t('home.compare.r3') }}</th>
+              <td>{{ i18n.t('home.compare.r3a') }}</td>
+              <td>{{ i18n.t('home.compare.r3b') }}</td>
+              <td class="is-highlight">{{ i18n.t('home.compare.r3c') }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ i18n.t('home.compare.r4') }}</th>
+              <td>{{ i18n.t('home.compare.r4a') }}</td>
+              <td>{{ i18n.t('home.compare.r4b') }}</td>
+              <td class="is-highlight">{{ i18n.t('home.compare.r4c') }}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{ i18n.t('home.compare.r5') }}</th>
+              <td>{{ i18n.t('home.compare.r5a') }}</td>
+              <td>{{ i18n.t('home.compare.r5b') }}</td>
+              <td class="is-highlight">{{ i18n.t('home.compare.r5c') }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>

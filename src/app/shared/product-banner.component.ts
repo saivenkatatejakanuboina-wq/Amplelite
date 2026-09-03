@@ -2,13 +2,13 @@ import { Component, computed, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import type { MsgKey } from '../i18n';
 import { I18nService } from '../i18n.service';
-import { ProductWorkflowVisualComponent } from './product-workflow-visual.component';
+import { ProductHubVisualComponent } from './product-hub-visual.component';
 
 export type BannerKind = 'qms' | 'dms' | 'lms';
 
 @Component({
   selector: 'app-product-banner',
-  imports: [RouterLink, ProductWorkflowVisualComponent],
+  imports: [RouterLink, ProductHubVisualComponent],
   template: `
     <section class="banner" [attr.data-kind]="kind()">
       <div class="banner-bg" aria-hidden="true">
@@ -37,7 +37,7 @@ export type BannerKind = 'qms' | 'dms' | 'lms';
         </div>
 
         <div class="visual banner-enter" style="--d: 400ms">
-          <app-product-workflow-visual [kind]="kind()" />
+          <app-product-hub-visual [kind]="kind()" />
         </div>
       </div>
     </section>

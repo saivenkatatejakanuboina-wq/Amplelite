@@ -89,77 +89,26 @@
   animation-delay: -12s;
 }
 
-.banner[data-kind='dms'] {
+.banner[data-kind='dms'],
+.banner[data-kind='qms'],
+.banner[data-kind='lms'] {
   --banner-glow: rgba(53, 191, 227, 0.28);
   --banner-glow-2: rgba(22, 119, 168, 0.22);
 }
 
-.banner[data-kind='qms'] .banner-bg {
-  background-color: #04151f;
-  background-image:
-    linear-gradient(90deg, rgba(4, 21, 31, 0.18) 0%, rgba(4, 21, 31, 0.28) 100%),
-    url('/amplelite-assets/qms-hero-flow.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.banner[data-kind='qms'] .banner-mesh,
-.banner[data-kind='qms'] .banner-shimmer,
-.banner[data-kind='qms'] .orb {
-  display: none;
-}
-
-.banner[data-kind='qms'] .banner-grid {
-  grid-template-columns: minmax(0, 1fr);
-  min-height: 460px;
-  justify-items: end;
-}
-
-.banner[data-kind='qms'] .copy {
-  max-width: 540px;
-  width: 100%;
-  margin-left: auto;
-  text-align: left;
-}
-
-.banner[data-kind='qms'] .copy h1 {
-  max-width: none;
-}
-
-.banner[data-kind='qms'] .visual {
-  display: none;
+.banner[data-kind='qms'] {
+  --banner-glow: rgba(232, 93, 4, 0.22);
+  --banner-glow-2: rgba(21, 101, 192, 0.28);
 }
 
 .banner[data-kind='lms'] {
-  --banner-glow: rgba(92, 107, 192, 0.26);
+  --banner-glow: rgba(92, 107, 192, 0.28);
   --banner-glow-2: rgba(53, 191, 227, 0.16);
-  --banner-glow-3: rgba(22, 119, 168, 0.12);
 }
 
-.banner[data-kind='lms'] .banner-bg {
-  background:
-    linear-gradient(90deg, rgba(0, 27, 68, 0.82) 0%, rgba(0, 27, 68, 0.55) 38%, rgba(0, 27, 68, 0.22) 68%, rgba(0, 27, 68, 0.12) 100%),
-    url('/amplelite-assets/lms-dna-bg.png') center / cover no-repeat;
-}
-
-.banner[data-kind='lms'] .banner-mesh,
-.banner[data-kind='lms'] .banner-shimmer,
-.banner[data-kind='lms'] .orb {
-  display: none;
-}
-
-.banner[data-kind='lms'] .banner-grid {
-  grid-template-columns: minmax(0, 1fr);
-  min-height: 420px;
-}
-
-.banner[data-kind='lms'] .copy {
+.banner .visual app-product-hub-visual {
+  width: 100%;
   max-width: 560px;
-}
-
-.banner[data-kind='lms'] .visual {
-  display: none;
 }
 
 .banner-grid {
@@ -349,13 +298,8 @@
     gap: 28px;
   }
   .banner .copy h1 { max-width: none; }
-  .visual { justify-content: center; }
-  .banner[data-kind='qms'] .banner-grid { justify-items: stretch; min-height: 400px; }
-  .banner[data-kind='qms'] .copy { max-width: none; margin-left: 0; }
-  .banner[data-kind='qms'] .banner-bg {
-    background-size: cover;
-    background-position: center;
-  }
+  .visual { justify-content: center; min-height: 0; }
+  .banner .visual app-product-hub-visual { max-width: 420px; margin: 0 auto; }
 }
 
 @media (max-width: 620px) {

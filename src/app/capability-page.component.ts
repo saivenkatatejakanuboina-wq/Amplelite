@@ -130,6 +130,7 @@ export class CapabilityPageComponent {
         mark: item.mark,
         name: this.i18n.t(item.nameKey),
         blurb: this.i18n.t(item.descKey),
+        art: `amplelite-assets/product-${item.key}.svg`,
       })),
   );
 }

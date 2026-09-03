@@ -1,6 +1,6 @@
 .product-faq {
   width: 100%;
-  padding: 56px 0 64px;
+  padding: 48px 0;
   background: #E3F2FD;
 }
 
@@ -12,7 +12,7 @@
 .faq-inner {
   display: grid;
   grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
-  gap: 36px 48px;
+  gap: 24px 32px;
   align-items: start;
   width: min(1160px, calc(100% - 96px));
   max-width: 1160px;
@@ -25,28 +25,31 @@
 
 .faq-kicker {
   margin: 0 0 10px;
-  color: var(--heading, #0369A1);
-  font-size: 11px;
+  color: var(--heading, #075985);
+  font-size: clamp(26px, 3vw, 36px);
   font-weight: 800;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
+  letter-spacing: -0.35px;
+  text-transform: none;
+  line-height: 1.2;
 }
 
 .product-faq h2 {
   margin: 0;
-  font-size: clamp(24px, 2.6vw, 32px);
-  font-weight: 800;
-  line-height: 1.18;
-  letter-spacing: -0.35px;
-  color: var(--subheading, #12304A);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0;
+  color: var(--subheading, #0A2540);
 }
 
 .faq-lede {
   margin: 12px 0 0;
-  max-width: 36ch;
+  max-width: 42ch;
   color: var(--text-secondary);
   font-size: 15px;
   line-height: 1.6;
+  font-weight: 500;
+}
   font-weight: 500;
 }
 

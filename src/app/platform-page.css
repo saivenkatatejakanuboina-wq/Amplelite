@@ -14,11 +14,11 @@
 .platform-journey {
   background: var(--band-ice, #E3F2FD);
 }
-.platform-journey ::ng-deep .sec-num {
-  display: none;
-}
 .platform-journey ::ng-deep .ecosystem {
-  padding-top: 48px;
+  padding: 48px 0 24px;
+}
+.platform-journey ::ng-deep .section-head {
+  margin-bottom: 24px;
 }
 
 /* ═══ Hero — cinematic dark ═══ */
@@ -515,9 +515,9 @@ a.hub-card:hover .hub-icon ::ng-deep .icon-wrap {
 /* ═══ Capabilities — dark band ═══ */
 .platform-cap-section {
   position: relative;
-  padding: 56px 0 64px;
+  padding: 48px 0;
   overflow: hidden;
-  background: var(--band-ice, #E3F2FD);
+  background: #fff;
   color: var(--navy);
   border-top: 1px solid #e6eef4;
   border-bottom: 1px solid #e6eef4;
@@ -542,18 +542,6 @@ a.hub-card:hover .hub-icon ::ng-deep .icon-wrap {
 .platform-cap-section .wrap {
   position: relative;
   z-index: 1;
-}
-.platform-cap-section ::ng-deep .overline {
-  color: var(--blue);
-}
-.platform-cap-section ::ng-deep h2 {
-  color: var(--navy);
-  font-size: clamp(26px, 3vw, 36px);
-  font-weight: 800;
-  letter-spacing: -.3px;
-}
-.platform-cap-section ::ng-deep .intro {
-  color: var(--text-secondary);
 }
 
 @keyframes viz-dash {

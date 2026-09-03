@@ -2,10 +2,7 @@
   @if (showHead()) {
     <div class="matrix-head" [class.center]="compact()">
       <p class="overline">{{ i18n.t('cap.capabilities') }}</p>
-      <h2>{{ i18n.t('platform.capabilities.h2') }}</h2>
-      @if (!compact()) {
-        <p class="intro">{{ i18n.t('platform.capabilities.intro') }}</p>
-      }
+      <h2>{{ i18n.t('cap.capabilities.h2') }}</h2>
     </div>
   }
 

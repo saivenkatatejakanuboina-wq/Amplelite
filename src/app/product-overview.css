@@ -20,25 +20,36 @@
 }
 .overline {
   margin: 0 0 10px;
+  color: var(--heading, #075985);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.35px;
+  text-transform: none;
+  line-height: 1.2;
+}
+.dark { color: var(--heading, #075985); }
+.hero .overline {
+  margin: 0 0 10px;
   color: #eaf1fa;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
 }
-.dark { color: var(--teal); }
-.hero h1, h2 { line-height: 1.18; max-width: none; margin: 0; }
 .hero h1 {
+  margin: 0;
   font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
   letter-spacing: -.4px;
-  text-transform: none;
   max-width: 14ch;
 }
 .section-head { max-width: 720px; }
 .section-head h2,
 .section h2 {
-  font-size: clamp(26px, 2.8vw, 36px);
-  letter-spacing: -.3px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--subheading, #0A2540);
 }
 .hero p:not(.overline) {
   font-size: 17px;
@@ -47,7 +58,7 @@
   max-width: 58ch;
   margin: 16px 0 0;
 }
-.section { padding: 48px 0 56px; background: var(--band-ice, #E3F2FD); }
+.section { padding: 40px 0 44px; background: var(--band-ice, #E3F2FD); }
 .intro {
   max-width: 68ch;
   color: var(--text-secondary);
@@ -142,7 +153,7 @@
 }
 .ghost:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
 
-.growth-section { background: var(--band-ice, #E3F2FD); }
+.growth-section { background: #fff; }
 .growth-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

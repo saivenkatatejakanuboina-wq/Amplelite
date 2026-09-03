@@ -22,7 +22,7 @@ import { I18nService } from './i18n.service';
 <header class="site-header" (mouseleave)="closeProducts()">
   <div class="wrap nav site-nav">
     <a class="brand-lockup" routerLink="/" aria-label="AmpleLite home" (click)="closeMenu()" (mouseenter)="closeProducts()">
-      <img class="brand-mark" src="/amplelite-assets/amplelite-logo.png" alt="AmpleLite">
+      <img class="brand-mark" src="amplelite-assets/amplelite-logo.png" alt="AmpleLite">
       <span class="brand-edition">{{ i18n.t('brand.edition') }}</span>
     </a>
     <div class="nav-end">
@@ -116,7 +116,7 @@ import { I18nService } from './i18n.service';
   <div class="wrap footer">
     <div class="footer-brand">
       <a class="footer-logo" routerLink="/" aria-label="AmpleLITE home">
-        <img src="/amplelite-assets/amplelite-logo-white.png" alt="AmpleLite">
+        <img src="amplelite-assets/amplelite-logo-white.png" alt="AmpleLite">
       </a>
       <p class="footer-address">{{ i18n.t('footer.tagline') }}</p>
       <a class="footer-phone" routerLink="/contact">{{ i18n.t('topbar.talk') }}</a>
